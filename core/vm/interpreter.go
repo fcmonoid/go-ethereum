@@ -98,6 +98,8 @@ func NewEVMInterpreter(evm *EVM, cfg Config) *EVMInterpreter {
 	// We use the STOP instruction whether to see
 	// the jump table was initialised. If it was not
 	// we'll set the default jump table.
+
+
 	if !cfg.JumpTable[STOP].valid {
 		switch {
 		case evm.ChainConfig().IsConstantinople(evm.BlockNumber):

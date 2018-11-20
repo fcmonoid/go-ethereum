@@ -19,7 +19,6 @@ package vm
 import (
 	"errors"
 	"math/big"
-
 	"github.com/ethereum/go-ethereum/params"
 )
 
@@ -154,6 +153,7 @@ func newHomesteadInstructionSet() [256]operation {
 // NewFrontierInstructionSet returns the frontier instructions
 // that can be executed during the frontier phase.
 func newFrontierInstructionSet() [256]operation {
+
 	return [256]operation{
 		STOP: {
 			execute:       opStop,
@@ -300,6 +300,14 @@ func newFrontierInstructionSet() [256]operation {
 			validateStack: makeStackFunc(2, 1),
 			memorySize:    memorySha3,
 			valid:         true,
+		},
+		/* Eun-Sun Cho 2018.11.20 */
+		/* really need to handle in detail */
+		SETNONFALLBACK: {
+			execute:       opSetNonFallBack,
+			gasCost:       gasSetNonFallBack,
+			validateStack: makeStackFunc(0, 1), /* todo !! */
+			valid:         true, 
 		},
 		ADDRESS: {
 			execute:       opAddress,
@@ -963,10 +971,5 @@ func newFrontierInstructionSet() [256]operation {
 			writes:        true,
 		},
 
-		/* Eun-Sun Cho 2018.11.20 */
-		SETNONFALLBACK: {
-			execute:       opSetNonFallBack,
-			gasCost:       gasSetNonFallBack,
-		},
 	}
 }
