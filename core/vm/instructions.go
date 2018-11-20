@@ -35,6 +35,9 @@ var (
 	errReturnDataOutOfBounds = errors.New("evm: return data out of bounds")
 	errExecutionReverted     = errors.New("evm: execution reverted")
 	errMaxCodeSizeExceeded   = errors.New("evm: max code size exceeded")
+
+	/* Eun-Sun Cho 2018.11.20 */
+	IsNonFallBackEnforced	bool  = true;
 )
 
 func opAdd(pc *uint64, interpreter *EVMInterpreter, contract *Contract, memory *Memory, stack *Stack) ([]byte, error) {
@@ -884,6 +887,13 @@ func opSuicide(pc *uint64, interpreter *EVMInterpreter, contract *Contract, memo
 
 	interpreter.evm.StateDB.Suicide(contract.Address())
 	return nil, nil
+}
+
+/* Eun-Sun Cho 2018.11.20 */
+/* execution syntax for SetNonFallBack */
+func opSetNonFallBack(pc *uint64, interpreter *EVMInterpreter, contract *Contract, memory *Memory, stack *Stack) ([]byte, error) {
+	IsNonFallBackEnforced = true;
+	return nil, nil;
 }
 
 // following functions are used by the instruction jump  table

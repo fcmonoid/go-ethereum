@@ -962,5 +962,11 @@ func newFrontierInstructionSet() [256]operation {
 			valid:         true,
 			writes:        true,
 		},
+
+		/* Eun-Sun Cho 2018.11.20 */
+		SETNONFALLBACK: {
+			execute:       opSetNonFallBack,
+			gasCost:       gasSetNonFallBack,
+		},
 	}
 }

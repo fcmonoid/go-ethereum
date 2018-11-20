@@ -71,6 +71,8 @@ const (
 	SAR
 
 	SHA3 = 0x20
+	/* Eun-Sun Cho 2018.11.20 */
+	SETNONFALLBACK = 0x25
 )
 
 // 0x30 range - closure state.
@@ -252,6 +254,9 @@ var opCodeToString = map[OpCode]string{
 	// 0x20 range - crypto.
 	SHA3: "SHA3",
 
+	// Eun-Sun Cho 2018.11.20
+	SETNONFALLBACK: "SETNONFALLBACK",
+
 	// 0x30 range - closure state.
 	ADDRESS:        "ADDRESS",
 	BALANCE:        "BALANCE",
@@ -420,6 +425,8 @@ var stringToOp = map[string]OpCode{
 	"ADDMOD":         ADDMOD,
 	"MULMOD":         MULMOD,
 	"SHA3":           SHA3,
+	/* Eun-Sun Cho 2018.11.20 */
+	"SETNONFALLBACK":           SETNONFALLBACK,
 	"ADDRESS":        ADDRESS,
 	"BALANCE":        BALANCE,
 	"ORIGIN":         ORIGIN,

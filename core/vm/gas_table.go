@@ -531,3 +531,7 @@ func gasSwap(gt params.GasTable, evm *EVM, contract *Contract, stack *Stack, mem
 func gasDup(gt params.GasTable, evm *EVM, contract *Contract, stack *Stack, mem *Memory, memorySize uint64) (uint64, error) {
 	return GasFastestStep, nil
 }
+/* Eun-Sun Cho 2018.11.20 */
+func gasSetNonFallBack(gt params.GasTable, evm *EVM, contract *Contract, stack *Stack, mem *Memory, memorySize uint64) (uint64, error) {
+	return 0, nil
+}
