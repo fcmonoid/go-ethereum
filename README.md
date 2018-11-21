@@ -1,4 +1,4 @@
-### EthVM+
+# EVM Extension (EthVM+)
 
 This yields a new vm for Ethereum, handling new customized keywords. 
 Current version of EthVM+ is made from go-ethereum. Thus for classical ethereum usage, please refer to https://github.com/ethereum/go-ethereum.
@@ -17,7 +17,7 @@ STOP            pc=00000001 gas=10000000000 cost=0
 </code> </pre>
 
 
-The list of the modified source files of go-ethereum are;
+The list of the modified Golang source files of go-ethereum are;
 1. core/vm/opcodes.go
 2. core/vm/instructions.go
 3. core/vm/gas_table.go
